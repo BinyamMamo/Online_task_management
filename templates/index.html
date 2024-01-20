@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Task Management System</title>
+  <link rel="stylesheet" href="../static/styles/header.css">
+  <link rel="stylesheet" href="../static/styles/section.css">
+  <link rel="stylesheet" href="../static/styles/modals.css">
+  <script src="../static/scripts/script.js"></script>
+  <script src="../static/scripts/modals.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+</head>
+<body>
+  <div class="container">
+    <h1>Task Management System</h1>
+    <form id="taskForm">
+      <input type="text" id="taskInput" placeholder="Enter task...">
+      <button id="new_task" type="submit">Add Task</button>
+    </form>
+    <div id="taskList">
+		<div class="group">
+			<div class="group-header">
+				<input class="group-title" value="Group 1" onclick="this.readOnly=false;" readonly />
+				<button class="group-clr"><i class="fa fa-paint-brush" onclick="this.querySelector('input').click()" aria-hidden="true"><input type="color" oninput="this.parentElement.parentElement.parentElement.style.backgroundColor=this.value" /></i></button>
+				<button class="collapse-btn" onclick="collapse(this)"><i class="fa fa-caret-down" aria-hidden="true"></i></button>
+			</div>
+			<div class="group-body" style="display: block;">
+				<div class="item">
+					<label class="label">
+						<input type="checkbox"> <span>completing math assignment</span>
+					</label>
+					<button class="edit-item"><i class="fa fa-pencil"></i></button>
+					<button class="edit-delete"><i class="fa fa-trash-o"></i></button>
+				</div>
+				<div class="item">
+					<label class="label">
+						<input type="checkbox"> <span class="done">fetching the garden</span>
+					</label>
+				</div>
+				<button class="add_task" type="submit">+</button>
+			</div>
+		</div>
+	</div>
+  </div>
+
+
+
+  <div id="taskModal" class="modal" style="display: none;">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <h2>Add New Task</h2>
+      <form id="taskForm">
+        <input type="text" id="taskName" placeholder="Task Name" required>
+        <input type="datetime-local" id="deadline" required>
+        <textarea id="description" placeholder="Task Description"></textarea>
+        <button type="submit">Add Task</button>
+      </form>
+    </div>
+  </div>
+</body>
+</html>
