@@ -11,14 +11,19 @@
 	border-top: none;
 }
 
-.item {
+.item, .item-more {
 	display: flex;
 	margin: 10px;
 	border: 1px solid #eee;
 	padding: 8px;
 }
 
-.item * {
+.item-more {
+	padding: 0;
+	position: relative;
+}
+
+.item *, .item-more * {
 	margin-left: 5px;
 	cursor: pointer;
 	display: inline-block;
@@ -26,16 +31,14 @@
 	background: none;
 	position: relative;
 }
+
 .item label {
+	position: relative;
 	display: flex;
 	width: 85%;
 	align-items: center;
 	cursor: pointer;
 	user-select: none;
-}
-
-.item label input {
-	transform: scale(1.2);
 }
 
 .item label span {
@@ -44,6 +47,67 @@
 }
 
 
+.item-more span {
+	display: inline-block;
+	position: absolute;
+	pointer-events: none;
+	white-space: nowrap;
+	overflow: hidden;
+	margin: 5px;
+	font: 17px;
+	font-weight: 550;
+	left: 0;
+	transition: 0.75s;
+	opacity: 0.65;
+}
+
+.item-more button {
+	display: none;
+	opacity: 0;
+	transition: 1s;
+}
+
+.item-more input:focus ~ button {
+	/* display: block; */
+	margin-right: 10px;
+	transition: 0.5s;
+	opacity: 1;
+	display: block;
+	/* left: 50%; */
+}
+
+.item-more input:valid ~ button {
+	opacity: 1;
+	display: block;
+}
+
+.item-more input:focus ~ span {
+	left: 100%;
+	transform: translateX(calc(-100% - 7px));
+	z-index: 5;
+	opacity: 0;
+	display: none;
+}
+
+.item-more input:valid ~ span {
+	opacity: 0;
+	display: none;
+}
+
+.item-more input, .item-more input:focus {
+	border: none;
+	outline: none;
+}
+
+.item-more input {
+	display: block;
+	position: relative;
+	width: 78%;
+	font-family: monospace;
+	font-size: 15px;
+	padding: 6px;
+	z-index: 2;
+}
 
 .add_task {
 	position: absolute;
@@ -63,11 +127,6 @@
 .add_task:hover {
 	opacity: 1;
 	font: bolder 15px monospace;
-}
-
-.done {
-	text-decoration: line-through;
-	color: #4caf50;
 }
 
 .group-header {

@@ -1,0 +1,46 @@
+<html>
+<head>
+	<!-- Importing jquery cdn -->
+	<link href=
+"http://code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css"
+		rel="Stylesheet"
+		type="text/css" />
+
+	<script type="text/javascript"
+		src="http://code.jquery.com/jquery-1.7.2.min.js">
+	</script>
+
+	<script type="text/javascript"
+		src="http://code.jquery.com/ui/1.10.4/jquery-ui.js">
+	</script>
+
+	<!-- JavaScript function to display the calendar -->
+	<script language="javascript">
+		$(document).ready(function () {
+			$("#txtdate").datepicker({
+				showOn: "button",
+
+				// Button image stored on local device
+				buttonImage: 
+"https://media.geeksforgeeks.org/wp-content/uploads/20231215151044/datePicker.png", 
+				buttonImageOnly: true
+			});
+		});
+	</script>
+
+	<!-- Customizing the datepicker button image -->
+	<style type="text/css">
+		.ui-datepicker-trigger { 
+			max-height: 28px;
+		}
+	</style>
+</head>
+
+<body>
+	<form class="form-group">
+		Date :
+		<input id="txtdate" type="text"
+			class="form-control">
+	</form>
+</body>
+</html>

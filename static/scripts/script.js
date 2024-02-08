@@ -25,3 +25,39 @@ function collapse(caret) {
 		caret.style.transition = '0.1s';
 	}
 }
+
+function promptYesNo(message, yes = "yes", no = "no") {
+	return new Promise((resolve, reject) => {
+		var confirmBox = document.getElementById("confirmBox");
+		var yesButton = document.getElementById("yesButton");
+		var noButton = document.getElementById("noButton");
+		yesButton.innerHTML = yes;
+		noButton.innerHTML = no;
+		confirmBox.querySelector('p').innerHTML = message;
+		confirmBox.style.display = "block";
+
+		yesButton.addEventListener("click", function () {
+			// User clicked "Yes"
+			confirmBox.style.display = "none";
+			resolve(true);
+		});
+
+		noButton.addEventListener("click", function () {
+			// User clicked "No"
+			confirmBox.style.display = "none";
+			resolve(false);
+		});
+	});
+}
+
+function request(message, fun1, fun2=() => {}, yes = "yes", no = "no") {
+	promptYesNo(message, yes, no).then((result) => {
+		if (result) {
+			// User clicked "Yes"
+			fun1();
+		} else {
+			// User clicked "No"
+			fun2();
+		}
+	});
+}
