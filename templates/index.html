@@ -19,12 +19,12 @@
 		<h1>Task Management System</h1>
 		<form class="taskForm">
 			<input type="text" id="taskInput" placeholder="Enter task...">
-			<button id="new_task" class="add-task" type="submit">Add Task</button>
+			<button id="new_task" class="add-task" type="button">Add Task</button>
 		</form>
 		<div id="taskList">
 			<div class="group">
 				<div class="group-header">
-					<input class="group-title" value="Group 1" onclick="this.readOnly=false;" readonly />
+					<input class="group-title" value="ALX Projects" onclick="this.readOnly=false;" readonly />
 					<button class="group-clr"><i class="fa fa-paint-brush" onclick="this.querySelector('input').click()"
 							aria-hidden="true"><input type="color"
 								oninput="this.parentElement.parentElement.parentElement.style.backgroundColor=this.value" /></i></button>
@@ -34,7 +34,75 @@
 				<div class="group-body" style="display: block;">
 						<div class="item">
 							<label class="label">
-								<button style="font: 16px bolder;">2 days</button> <span>completing math assignment</span>
+								<button style="font: 16px bolder;">2:57</button> <span>building mvp</span>
+							</label>
+							<button class="edit-tem"><i class="fa fa-pencil"></i></button>
+							<button class="delete-item" onclick="request('Are u sure u want to delete this?', ()=>{this.parentElement.style.display='none'})"><i
+									class="fa fa-trash-o"></i></button>
+							<button class="check-item" onclick="request('finished this task?', ()=>{
+								this.parentElement.querySelector('.label').style.textDecoration='line-through'})"><i class="fa fa-check"></i></button>
+							<!-- <button class="check-item"><i class="fa fa-check-square-o"></i></button> -->
+						</div>
+
+						<div class="item-more">
+							<input type="text" required> <span>add task</span>
+							<button class="edit-item">
+								<i class="fa fa-pencil" aria-hidden="true"></i>
+							</button>
+							<button class="delete-item" onclick="request('Are u sure u want to delete this?', ()=>{this.parentElement.style.display='none'})"><i
+									class="fa fa-check"></i></button>
+						</div>
+
+					<button class="add_task" type="submit" style="display: none;">+</button>
+				</div>
+			</div>
+			<div class="group">
+				<div class="group-header">
+					<input class="group-title" value="Portfolio project" onclick="this.readOnly=false;" readonly />
+					<button class="group-clr"><i class="fa fa-paint-brush" onclick="this.querySelector('input').click()"
+							aria-hidden="true"><input type="color"
+								oninput="this.parentElement.parentElement.parentElement.style.backgroundColor=this.value" /></i></button>
+					<button class="collapse-btn" onclick="collapse(this)"><i class="fa fa-caret-down"
+							aria-hidden="true"></i></button>
+				</div>
+				<div class="group-body" style="display: block;">
+						<div class="item">
+							<label class="label">
+								<button style="font: 16px bolder;">2 days</button> <span>finishing the front-end</span>
+							</label>
+							<button class="edit-tem"><i class="fa fa-pencil"></i></button>
+							<button class="delete-item" onclick="request('Are u sure u want to delete this?', ()=>{this.parentElement.style.display='none'})"><i
+									class="fa fa-trash-o"></i></button>
+							<button class="check-item" onclick="request('finished this task?', ()=>{
+								this.parentElement.querySelector('.label').style.textDecoration='line-through'})"><i class="fa fa-check"></i></button>
+							<!-- <button class="check-item"><i class="fa fa-check-square-o"></i></button> -->
+						</div>
+
+						<div class="item-more">
+							<input type="text" required> <span>add task</span>
+							<button class="edit-item">
+								<i class="fa fa-pencil" aria-hidden="true"></i>
+							</button>
+							<button class="delete-item" onclick="request('Are u sure u want to delete this?', ()=>{this.parentElement.style.display='none'})"><i
+									class="fa fa-check"></i></button>
+						</div>
+
+					<button class="add_task" type="submit" style="display: none;">+</button>
+				</div>
+			</div>
+			<div class="group">
+				<div class="group-header">
+					<input class="group-title" value="Lorem Ipsum" onclick="this.readOnly=false;" readonly />
+					<button class="group-clr"><i class="fa fa-paint-brush" onclick="this.querySelector('input').click()"
+							aria-hidden="true"><input type="color"
+								oninput="this.parentElement.parentElement.parentElement.style.backgroundColor=this.value" /></i></button>
+					<button class="collapse-btn" onclick="collapse(this)"><i class="fa fa-caret-down"
+							aria-hidden="true"></i></button>
+				</div>
+				<div class="group-body" style="display: block;">
+						<div class="item">
+							<label class="label">
+								<button style="font: 16px bolder;">2 days</button> <span>Lorem ips...</span>
 							</label>
 							<button class="edit-tem"><i class="fa fa-pencil"></i></button>
 							<button class="delete-item" onclick="request('Are u sure u want to delete this?', ()=>{this.parentElement.style.display='none'})"><i
@@ -64,7 +132,7 @@
 		<button id="yesButton">Yes</button>
 		<button id="noButton">No</button>
 	</div>
-	<div id="taskModal" class="task-modal" style="display: none;">
+	<div id="taskModal" class="task-modal" style="display: block;">
 		<div class="task-modal-content">
 			<span class="close" onclick="$('#taskModal').css('display', 'none');">&times;</span>
 			<h2>Add New Task</h2>

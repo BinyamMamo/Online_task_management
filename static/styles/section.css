@@ -1,6 +1,10 @@
 #taskList {
 	border-top: 1px solid #ccc;
 	padding-top: 20px;
+	display: flex;
+	flex-wrap: wrap;
+	width: 100%;
+	/* background-color: rgb(111, 92, 130); */
 }
 
 .group {
@@ -9,6 +13,8 @@
 	max-width: fit-content;
 	position: relative;
 	border-top: none;
+	margin: 10px;
+	width: 45%;
 }
 
 .item, .item-more {
