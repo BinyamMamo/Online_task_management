@@ -84,7 +84,7 @@
 .item-more input:focus ~ span {
 	left: 100%;
 	transform: translateX(calc(-100% - 7px));
-	z-index: 5;
+	z-index: 2;
 	opacity: 0;
 	display: none;
 }

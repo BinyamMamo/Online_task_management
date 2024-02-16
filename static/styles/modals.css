@@ -2,7 +2,7 @@
 .task-modal {
 	display: block;
 	position: fixed;
-	z-index: 1;
+	z-index: 3;
 	left: 0;
 	top: 0;
 	width: 100%;
@@ -12,6 +12,7 @@
 }
 
 .task-modal-content {
+	display: block;
 	background-color: #fefefe;
 	margin: 15% auto;
 	padding: 20px;
@@ -84,7 +85,7 @@ select:first-child {
 	font-size: 15px;
 	left: 0;
 	top: 0;
-	z-index: 5;
+	z-index: 2;
 	padding: 5px;
 	color: #777;
 	pointer-events: none; /* makes the label not clickable just like it does not exist */
@@ -166,15 +167,20 @@ button.add-task {
 	font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
-.trash-bin {
-	padding: 15px;
-	font-size: 24px;
-	position: fixed;
-	bottom: 25px;
-	right: 25px;
-	border-radius: 50%;
-	color: rgb(76,174,15);
-	width: 15px;
-	height: 25px;
-	border-color: rgb(76,174,15);
+.add-group {
+	display: block;
+	background-color: none;
+	padding: 0;
+}
+
+.add-group legend, .add-group input {
+	margin: 0;
+	margin-left: 4px;
+	padding: 2px;
+	padding-left: 4px;
+}
+
+.add-group input {
+	width: calc(100% - 2px);
+	border: none;
 }

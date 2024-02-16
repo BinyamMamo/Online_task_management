@@ -64,7 +64,7 @@
 		<button id="yesButton">Yes</button>
 		<button id="noButton">No</button>
 	</div>
-	<div id="taskModal" class="task-modal" style="display: none;">
+	<div id="taskModal" class="task-modal" style="display: block;">
 		<div class="task-modal-content">
 			<span class="close" onclick="$('#taskModal').css('display', 'none');">&times;</span>
 			<h2>Add New Task</h2>
@@ -73,13 +73,19 @@
 					<input type="text" required>
 					<label class="placeholder">Title</label>
 				</div>
-				<select name="group">
+				<select name="group" onchange="this.nextElementSibling.style.display=(this.value=='add')?'block':'none'">
 					<option value="none" disabled selected> Select Group</option>
 					<option value="group1" name="group">Group 1: School Assignment</option>
 					<option value="group2" name="group">Group 2: Online chores</option>
 					<option value="group3" name="group">Group 3: Others</option>
 					<option value="add" name="group">+ add group</option>
 				</select>
+
+				<fieldset class="add-group" style="display: none;">
+					<legend>+ Add Group</legend>
+					<input type="text" required>
+				</fieldset>
+
 				<input type="datetime-local" id="deadline" onclick="this.value=(new Date()).toISOString().slice(0,16)" required>
 				<textarea id="description" placeholder="Task Description" oninput="modifySize(this)"></textarea>
 				<button type="submit" class="add-task">Add Task</button>
